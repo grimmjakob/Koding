@@ -1,0 +1,74 @@
+h1 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff0000; /* Red color */
+    text-shadow: 2px 2px 4px #fff; /* Add a subtle text shadow */
+}
+
+body {
+    background-image: url('bakgrunn.jpg');
+    background-size: cover; /* Adjusts the image size to cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+.advent-calendar {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px; /* Adjust the gap between boxes */
+    position: relative; /* Set a relative position */
+    z-index: 1; /* Set a lower z-index value */
+    /* ... Other styles ... */
+}
+.box {
+    width: 150px; /* Adjust the width of each box */
+    height: 150px; /* Adjust the height of each box */
+    background-image: url('path-to-gift-image.png');
+    background-size: contain; /* Adjust the image size to fit the box */
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* Text color */
+    background-color: #e74c3c; /* Box background color */
+}
+.question-box {
+    display: none;
+    background-color: #fff;
+    padding: 40px; /* Increase the padding for more space */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 70%; /* Adjust the width as needed */
+    max-width: 400px; /* Set a maximum width to prevent it from becoming too wide */
+    margin: 0 auto; /* Center horizontally */
+    position: fixed; /* Position the question box relative to the viewport */
+    top: 50%; /* Center vertically on the viewport */
+    left: 50%; /* Center horizontally on the viewport */
+    transform: translate(-50%, -50%); /* Center the box perfectly */
+    z-index: 1000; /* Set a higher z-index value to place it in front */
+    /* ... Other styles ... */
+}
+
+
+.question-text {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.options-list {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.options-list li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.options-list li:hover {
+    background-color: #f2f2f2;
+}
