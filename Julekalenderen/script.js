@@ -36,7 +36,7 @@ function displayHintsAndGuessForBox2() {
         }
     } else {
         // No more hints left for box 2, display a message
-        alert("You've run out of hints for box 2.");
+        alert("Ahh du klarte det ikke.");
     }
 }
 
