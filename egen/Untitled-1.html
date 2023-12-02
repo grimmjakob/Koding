@@ -1,0 +1,121 @@
+ <button onclick="displayQuestionAndOptions(1)">Dag 1</button>
+    <button onclick="displayQuestionAndOptions(2)">Dag 2</button>
+    <button onclick="displayQuestionAndOptions(3)">Dag 3</button>
+    <button onclick="displayQuestionAndOptions(4)">Dag 4</button>
+    <button onclick="displayQuestionAndOptions(5)">Dag 5</button>
+    <button onclick="displayQuestionAndOptions(6)">Dag 6</button>
+    <button onclick="displayQuestionAndOptions(7)">Dag 7</button>
+    <button onclick="displayQuestionAndOptions(8)">Dag 8</button>
+    <button onclick="displayQuestionAndOptions(9)">Dag 9</button>
+    <button onclick="displayQuestionAndOptions(10)">Dag 10</button>
+    <button onclick="displayQuestionAndOptions(11)">Dag 11</button>
+    <button onclick="displayQuestionAndOptions(12)">Dag 12</button>
+    <button onclick="displayQuestionAndOptions(13)">Dag 13</button>
+    <button onclick="displayQuestionAndOptions(14)">Dag 14</button>
+    <button onclick="displayQuestionAndOptions(15)">Dag 15</button>
+    <button onclick="displayQuestionAndOptions(16)">Dag 16</button>
+    <button onclick="displayQuestionAndOptions(17)">Dag 17</button>
+    <button onclick="displayQuestionAndOptions(18)">Dag 18</button>
+    <button onclick="displayQuestionAndOptions(19)">Dag 19</button>
+    <button onclick="displayQuestionAndOptions(20)">Dag 20</button>
+    <button onclick="displayQuestionAndOptions(21)">Dag 21</button>
+    <button onclick="displayQuestionAndOptions(22)">Dag 22</button>
+    <button onclick="displayQuestionAndOptions(23)">Dag 23</button>
+    <button onclick="displayQuestionAndOptions(24)">Dag 24</button>
+
+    <button onclick="checkAnswer(1, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(2, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(3, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(4, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(5, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(6, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(7, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(8, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(9, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(10, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(11, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(12, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(13, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(14, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(15, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(16, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(17, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(18, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(19, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(20, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(21, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(22, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(23, 'Paris')">Ditt svar:</button>
+    <button onclick="checkAnswer(24, 'Paris')">Ditt svar:</button>
+
+    const userAttempts = [];
+
+    function displayQuestionAndOptions(day) {
+        // Check if the user has already attempted this question
+        if (userAttempts.includes(day)) {
+            alert("You've already attempted this question.");
+            return;
+        }
+    
+        // Display the question and options for the selected day
+        // ...
+    }
+
+    function checkAnswer(day, selectedOption) {
+        if (userAttempts.includes(day)) {
+            alert("You've already attempted this question.");
+            return;
+        }
+    
+        const question = questions[day - 1];
+        if (selectedOption === question.correctAnswer) {
+            alert("Correct! You guessed it right!");
+            // Display the movie image
+            const image = new Image();
+            image.src = question.image;
+            document.body.appendChild(image);
+        } else {
+            alert("Oops! That's not the correct answer.");
+        }
+    
+        // Update user attempts
+        userAttempts.push(day);
+    }
+
+    
+
+    // Display the question and options for the selected day
+    questionText.textContent = questionsAndOptions[day - 1].question;
+
+    optionsList.innerHTML = "";
+    questionsAndOptions[day - 1].options.forEach((option) => {
+        const optionElement = document.createElement('li');
+        optionElement.textContent = option;
+        optionsList.appendChild(optionElement);
+    });
+
+    // Add event listener for option selection
+    optionsList.addEventListener('click', (e) => {
+        const selectedOption = e.target.textContent;
+        if (selectedOption === questionsAndOptions[day - 1].correctAnswer) {
+            // Handle correct answer
+            alert("Correct! You guessed it right!");
+        } else {
+            // Handle incorrect answer
+            alert("Oops! That's not the correct answer.");
+        }
+        // Hide the question box after the user has answered
+        questionBox.style.display = "none";
+    });
+
+    // Show the question box
+    questionBox.style.display = "block";
+}
+
+// Add click event listeners to each box
+boxes.forEach((box, index) => {
+    box.addEventListener('click', () => {
+        // Call the displayQuestionAndOptions function with the day number
+        displayQuestionAndOptions(index + 1);
+    });
+});

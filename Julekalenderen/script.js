@@ -23,11 +23,11 @@ function displayHintsAndGuessForBox2() {
         alert(hintsForBox2[currentHintIndexForBox2]);
 
         // Ask the user to make a guess for box 2
-        const userGuess = prompt("What is your guess for box 2?");
+        const userGuess = prompt("Hvilken film tror du det er?");
         
         // Check if the user's guess is correct for box 2
         if (userGuess && userGuess.toLowerCase() === "Groundhog day") {
-            alert("Correct! You guessed it right for box 2!");
+            alert("Riktig!!");
         } else {
             // Increment the hint index for box 2 for the next hint
             currentHintIndexForBox2++;
